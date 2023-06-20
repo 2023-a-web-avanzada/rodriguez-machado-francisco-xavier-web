@@ -1,1 +1,1 @@
-[{"nombre":"Imbabura","comidaTipica":"cuy","estaDeFiesta":false,"Temperatura":24,"numeroDeCantones":5,"habitantes":[{"nombre":"Pedro","apellido":"Ruiz","numeroDeCedula":1004696498,"fechaDeNacimiento":"2023-11-10T05:00:00.000Z","esMiembroProvincia":true}]}]
+[{"nombre":"Imbabura","comidaTipica":"cuy","estaDeFiesta":false,"Temperatura":24,"numeroDeCantones":5,"habitantes":[{"nombre":"Ibarra","apellido":"Juan","numeroDeCedula":1004996498,"fechaDeNacimiento":"1999-11-11T05:00:00.000Z","esMiembroProvincia":true}]}]

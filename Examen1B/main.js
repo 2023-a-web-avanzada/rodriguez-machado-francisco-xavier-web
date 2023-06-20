@@ -132,7 +132,7 @@ async function main(){
                             leerArchivo(path).then(
                                 dataProvincia =>{
                                     const listaProvincia = JSON.parse(dataProvincia)
-                                    nuevaProvincia.borrarGenero(listaProvincia).then(
+                                    nuevaProvincia.borrarProvincia(listaProvincia).then(
                                         newData =>{
                                             escribirArchivo(path,JSON.stringify(newData))
                                             console.log('Información borrada')
