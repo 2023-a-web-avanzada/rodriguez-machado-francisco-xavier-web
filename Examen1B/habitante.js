@@ -61,7 +61,7 @@ export class Habitante{
         let indiceHabitante;
         await inquirer
             .prompt([
-                {type:'input',name:'nombre',message:'Ingrese el nombre de la provincia:'},
+                {type:'input',name:'nombre',message:'Ingrese el nombre del habitante:'},
                 {type:'rawlist',name:'eleccion',message:'Elige la opción que va a cambiar:',
                     choices: ['nombre', 'apellido', 'numeroDeCedula','fechaDeNacimiento','esMiembroProvincia']},
                 {type:'input',name:'nuevoValor',message:'Ingrese el nuevo valor:'},
@@ -104,7 +104,7 @@ export class Habitante{
         let listaHabitantes = listaProvincia[indiceProvincia].habitantes;
         await inquirer
             .prompt([
-                {type:'input',name:'nombre',message:'Ingrese el nombre de la Provincia:'},
+                {type:'input',name:'nombre',message:'Ingrese el nombre del Habitante:'},
             ]).then(a=>{
                 promesaProvincia = new Promise(
                     res =>(

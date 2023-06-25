@@ -2,6 +2,7 @@ import inquirer from "inquirer";
 export class Provincia{
 
     constructor(nombre, comidaTipica, estaDeFiesta, Temperatura, numeroDeCantones, habitantes) {
+        // Asignar el valor del parámetro 'nombre' a la propiedad 'nombre' de la instancia
         this.nombre = nombre
         this.comidaTipica = comidaTipica
         this.estaDeFiesta = estaDeFiesta
@@ -14,6 +15,7 @@ export class Provincia{
     async crearProvincia(){
         const nuevaProvincia = new Provincia()
         let promesaProvincia;
+        // Se utiliza el método prompt de inquirer para solicitar información al usuario
         const respuestaM = await inquirer
             .prompt([
                 {type:'input',name:'nombre',message:'Ingrese el nombre de la provincia:'},
@@ -22,23 +24,28 @@ export class Provincia{
                 {type:'input',name:'Temperatura',message:'Ingrese la temperatura promedio de la provincia:'},
                 {type:'input',name:'numeroDeCantones',message:'Ingrese el número de cantones que tiene la provincia:'}
             ]).then(a=>{
+                // Se crea una nueva promesa para almacenar el objeto Provincia creado
                 promesaProvincia = new Promise(
                     res =>(
+                        // Se asignan los valores ingresados por el usuario a las propiedades del objeto nuevaProvincia
                         nuevaProvincia.nombre = a.nombre,
                             nuevaProvincia.comidaTipica = a.comidaTipica,
                             nuevaProvincia.estaDeFiesta = (a.estaDeFiesta === 'si'),
                             nuevaProvincia.Temperatura = parseFloat(a.Temperatura),
                             nuevaProvincia.numeroDeCantones = parseInt(a.numeroDeCantones),
                             nuevaProvincia.habitantes = [],
+                            // Se resuelve la promesa con el objeto nuevaProvincia
                             res(nuevaProvincia)
                     ));
             });
+        // Se retorna la promesa que se resolverá con el objeto Provincia
         return promesaProvincia
     }
 
     async actualizarProvincia(listaProvincia){
         let promesaProvincia;
         let indiceProvincia;
+        // Solicitar al usuario los datos para actualizar una provincia
         const respuestaProvincia = await inquirer
             .prompt([
                 {type:'input',name:'nombre',message:'Ingrese el nombre de la provincia:'},
@@ -51,8 +58,10 @@ export class Provincia{
                         listaProvincia
                             .forEach(
                                 valorActual => {
+                                    // Verificar si el nombre de la provincia coincide con el ingresado por el usuario
                                     if (valorActual.nombre == a.nombre) {
                                         indiceProvincia = listaProvincia.indexOf(valorActual)
+                                        // Según la elección del usuario, actualizar el valor correspondiente en la provincia
                                         switch (a.eleccion){
                                             case "nombre":
                                                 listaProvincia[indiceProvincia].nombre = a.nuevoValor
@@ -81,12 +90,14 @@ export class Provincia{
 
     async borrarProvincia(listaProvincia){
         let promesaProvincia;
+        // Solicitar al usuario el nombre de la provincia a eliminar
         const respuestaProvincia = await inquirer
             .prompt([
                 {type:'input',name:'nombre',message:'Ingrese el nombre de la provincia:'},
             ]).then(a=>{
                 promesaProvincia = new Promise(
                     res =>(
+                        // Filtrar la lista de provincias y devolver una nueva lista sin la provincia a eliminar
                         res(listaProvincia.filter(item => item.nombre !== a.nombre))
                     ));
             });

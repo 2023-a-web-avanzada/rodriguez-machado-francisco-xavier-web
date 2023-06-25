@@ -14,7 +14,7 @@ async function main(){
                 {
                     type: 'rawlist',
                     name: 'opcion',
-                    message: 'SISTEMA DE GESTIÓN DE PROVINCIA Y HABITANTES\n'
+                    message: 'SISTEMA DE GESTIÓN DE PROVINCIAS Y HABITANTES\n'
                         + 'Elija una opción:',
                     choices: ['Crear', 'Mostrar Provincia', 'Actualizar', 'Gestión de Habitantes', 'Borrar Provincia', 'Salir']
                 }
@@ -44,7 +44,7 @@ async function main(){
                                     nuevaProvincia.actualizarProvincia(listaProvincia).then(
                                         newData =>{
                                             escribirArchivo(path,JSON.stringify(newData))
-                                            console.log('Información actualizada')
+                                            console.log('La información ha sido actualizada')
                                             main()
                                         }
                                     )
@@ -102,7 +102,7 @@ async function main(){
                                                 nuevoHabitante.actualizarHabitante(habitantes, indiceProvincia).then(
                                                     newData => {
                                                         escribirArchivo(path, JSON.stringify(newData))
-                                                        console.log('Información actualizada')
+                                                        console.log('La información ha sido actualizada')
                                                         mainHabitante()
                                                     }
                                                 )
@@ -112,7 +112,7 @@ async function main(){
                                                 nuevoHabitante.borrarHabitante(habitantes, indiceProvincia).then(
                                                     newData => {
                                                         escribirArchivo(path, JSON.stringify(newData))
-                                                        console.log('Información borrada')
+                                                        console.log('La información ha sido borrada')
                                                         mainHabitante()
                                                     }
                                                 )
@@ -135,7 +135,7 @@ async function main(){
                                     nuevaProvincia.borrarProvincia(listaProvincia).then(
                                         newData =>{
                                             escribirArchivo(path,JSON.stringify(newData))
-                                            console.log('Información borrada')
+                                            console.log('La Información ha sido borrada')
                                             main()
                                         }
                                     )
@@ -144,7 +144,7 @@ async function main(){
                             break
 
                         case 'Salir':
-                            console.log('Gracias por usar el sistema')
+                            console.log('Gracias, vuelva pronto!!')
                             break
 
                     }
