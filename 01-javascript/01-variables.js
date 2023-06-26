@@ -1,5 +1,5 @@
 // 01-javascript
-//  01-variables.js
+//  01-variables.ts
 // Mutables e Inmutables
 // Mutables  (re asignadas)
 var numeroUno = 1;

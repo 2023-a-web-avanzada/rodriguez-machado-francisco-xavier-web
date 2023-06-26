@@ -67,7 +67,7 @@ function ejercicio(
         .catch(error => console.error(error))
 }
 
-const pathUno = '01-variables.js';
+const pathUno = '01-variables.ts';
 const pathDos = '06-ejemplo.txt';
 const pathTres = '06-ejemplo-respuesta.txt';
 ejercicio(pathUno, pathDos, pathTres);
@@ -82,7 +82,7 @@ ejercicio(pathUno, pathDos, pathTres);
 // const a = async function(){}
 // const a = async ()=>{}
 async function ejercicioConAwait(){
-    const pathUno = '01-variables.js';
+    const pathUno = '01-variables.ts';
     const pathDos = '06-ejemplo.txt';
     const pathTres = '06-ejemplo-respuesta.txt';
     try {
