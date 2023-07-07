@@ -10,19 +10,19 @@ import GenreMovieList from './Componets/GenreMovieList'
 
 
 function App() {
-    const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0)
 
-    return (
-        <div className="">
-            <Header/>
+  return (
+    <div className="">
+        <Header/>
+        
+        <Slider/>
 
-            <Slider/>
+        <ProductionHouse/>
 
-            <ProductionHouse/>
-
-            <GenreMovieList/>
-        </div>
-    )
+        <GenreMovieList/>
+    </div>
+  )
 }
 
 export default App
