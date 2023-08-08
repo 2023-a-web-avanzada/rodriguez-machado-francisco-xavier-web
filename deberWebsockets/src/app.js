@@ -1,5 +1,5 @@
 const express = require('express');
-const { Socket } = require('socket.io');
+const {Socket} = require('socket.io');
 const app = express();
 
 //creamos un servidor http a partir de la libreria de express
@@ -16,7 +16,7 @@ app.use(require('../routes/deberwebsockets.routes'));
 app.use(express.static('public'));
 
 io.on('connection', (socket) => {
-    socket.on('stream', (image) =>{
+    socket.on('stream', (image) => {
         // emitir el evento a todos los sockets conectados
         socket.broadcast.emit('stream', image);
     })

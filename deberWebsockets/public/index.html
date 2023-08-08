@@ -4,66 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emisor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilos.css">
     <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-    <h1>Emsion en directo</h1>
-    <button id = "btn">Emitir</button>
-    <video src="" id="video" style="width: 800px; height: 600px;" autoplay = "true"></video>
-    <canvas id="preview"></canvas>
-    <div class="status"></div>
+<h1>Emisión en Directo</h1>
+<video src="" id="video" style="width: 800px; height: 600px;" autoplay="true"></video>
+<canvas id="preview"></canvas>
+<div class="container">
+    <div class="row justify-content-center mt-3">
+        <button id="btn" class="btn btn-primary mr-3">Iniciar Video</button>
+        <button id="toggleBtn" class="btn btn-danger">Detener Video</button>
+    </div>
+</div>
+<div class="status"></div>
 
-    <script>
-
-        var canvas = document.querySelector('#preview');
-        var context = canvas.getContext('2d');
-        var btn = document.querySelector('#btn');
-        canvas.style.display = 'none';
-        canvas.width = 512;
-        canvas.height = 384;
-
-        context.width = canvas.width;
-        context.height = canvas.height;
-
-        var video = document.querySelector('#video');
-
-        var socket = io();
-
-        function publicarMensaje(msg){
-            document.querySelector('.status').innerText = msg;
-        }
-
-        function loadCamara(stream){
-            video.srcObject = stream;
-            publicarMensaje('camara funcionando');
-        }
-
-        function errorCamara(){
-            publicarMensaje('camara ha fallado');
-        }
-
-        function verVideo(video, content){
-            context.drawImage(video, 0, 0, context.width, context.height);
-            socket.emit('stream', canvas.toDataURL('image/webp'));
-        }
-
-        btn.addEventListener('click', () =>{
-            navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msgGetUserMedia)
-            
-            if(navigator.getUserMedia){
-                navigator.getUserMedia({video:true}, loadCamara, errorCamara)
-            }
-
-            var intervalo = setInterval(() => {
-                verVideo(video, context);
-            }, 30);
-        })
-
-
-
-
-
-    </script>
-
+<script src="emision.js"></script>
 </body>
 </html>

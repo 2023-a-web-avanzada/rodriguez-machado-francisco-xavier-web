@@ -4,20 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilos.css">
     <script src="socket.io/socket.io.js"></script>
 </head>
 <body>
-    <img id="play" src="" alt="">
+<h1>Visualización en tiempo real</h1>
+<div id="video-container">
+    <img id="play" src="" alt="video obtenido con socket.io" style="width: 800px; height: 600px;">
+</div>
 
-    <script>
-
-        var socket = io();
-
-        socket.on('stream', (image) => {
-            let img = document.getElementById('play');
-            img.src = image;
-        })
-
-    </script>
+<script src="visualizacion.js"></script>
 </body>
 </html>
