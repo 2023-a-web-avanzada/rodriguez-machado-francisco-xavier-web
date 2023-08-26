@@ -1,4 +1,4 @@
-// app/componentes/DEstilosEjemplo.tsx
+// app/components/DEstilosEjemplo.tsx
 // npm install --save @emotion/styled @emotion/react
 'use client'
 import styled from "@emotion/styled";

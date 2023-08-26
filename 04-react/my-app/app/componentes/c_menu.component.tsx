@@ -1,4 +1,4 @@
-// app/componentes/c_menu.component.tsx
+// app/components/c_menu.component.tsx
 export default function C_menuComponent(){
     return (
         <>
