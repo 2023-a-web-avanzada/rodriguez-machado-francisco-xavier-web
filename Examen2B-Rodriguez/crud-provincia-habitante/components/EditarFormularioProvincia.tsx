@@ -4,9 +4,9 @@ import {useRouter} from "next/navigation";
 
 export default function EditarFormularioProvincia({idProvincia, nombreProvincia, gradoSeguridad, numeroHabitantes, estaFiestas}){
 
-    const [nuevoNombreProvincia, setNuevoNombreProvincia] = useState(nombreProvincia);
-    const [nuevoGradoSeguridad, setNuevoGradoSeguridad] = useState(gradoSeguridad);
-    const [nuevoNumeroHabitantes, setNuevoNumeroHabitantes] = useState(numeroHabitantes);
+    const [nuevoNombre, setNuevoNombreProvincia] = useState(nombreProvincia);
+    const [nuevaSeguridad, setNuevoGradoSeguridad] = useState(gradoSeguridad);
+    const [nuevoNumHabitantes, setNuevoNumeroHabitantes] = useState(numeroHabitantes);
     const [nuevoEstado, setNuevoEstado] = useState(estaFiestas);
 
     const router = useRouter();
@@ -14,13 +14,13 @@ export default function EditarFormularioProvincia({idProvincia, nombreProvincia,
         e.preventDefault();
 
         try {
-            const res = await fetch(`http://localhost:3000/api/provincias${idProvincia}`,{
+            const res = await fetch(`http://localhost:3000/api/provincias/${idProvincia}`,{
                 method: "PUT",
                 headers:{
                     "Content-type": "application/json",
                 },
-                body: JSON.stringify({nuevoNombreProvincia, nuevoGradoSeguridad,
-                    nuevoNumeroHabitantes, nuevoEstado}),
+                body: JSON.stringify({nuevoNombre, nuevaSeguridad,
+                    nuevoNumHabitantes, nuevoEstado}),
             });
 
             if (!res.ok){
@@ -37,26 +37,26 @@ export default function EditarFormularioProvincia({idProvincia, nombreProvincia,
         <form onSubmit={handleSubmit} className={"flex flex-col gap-3"}>
             <input
                 onChange={(e) => setNuevoNombreProvincia(e.target.value)}
-                value={nuevoNombreProvincia}
+                value={nuevoNombre}
                 className="border border-slate-500 px-8 py-2"
                 type="text"
                 placeholder="Ingrese el nombre de la Nueva Provincia"
             />
             <input
                 onChange={(e) => setNuevoNumeroHabitantes(e.target.value)}
-                value={nuevoNumeroHabitantes}
+                value={nuevoNumHabitantes}
                 className="border border-slate-500 px-8 py-2"
                 type="text"
                 placeholder="Ingrese el número de habitantes"
             />
             <div className="border border-slate-500 px-8 py-2">
                 <label htmlFor="gradoSeguridad" className="font-bold">
-                    Grado de Seguridad: {nuevoGradoSeguridad}
+                    Grado de Seguridad: {nuevaSeguridad}
                 </label>
                 <input
                     id="gradoSeguridad"
                     onChange={(e) => setNuevoGradoSeguridad(e.target.value)}
-                    value={nuevoGradoSeguridad}
+                    value={nuevaSeguridad}
                     className="w-full"
                     type="range"
                     min="1"

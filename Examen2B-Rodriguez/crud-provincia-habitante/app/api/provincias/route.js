@@ -1,18 +1,18 @@
 import connectMongoDB from "../../../libs/mongodb";
 import Provincia from "../../../models/provincia";
-import {NextResponse} from "next/server";
+import { NextResponse } from "next/server";
 
 export async function POST(request){
-    const {nombreProvincia, gradoSeguridad, numeroHabitantes, estaFiestas} = await request.json();
+    const { nombreProvincia, gradoSeguridad, numeroHabitantes, estaFiestas } = await request.json();
     await connectMongoDB();
     await Provincia.create({nombreProvincia, gradoSeguridad, numeroHabitantes, estaFiestas});
-    return NextResponse.json({message: "Provincia Creada"}, {status: 201});
+    return NextResponse.json({ message: "Provincia Creada" }, { status: 201 });
 }
 
 export async function GET(){
     await connectMongoDB();
     const provincias = await Provincia.find();
-    return NextResponse.json({provincias});
+    return NextResponse.json({ provincias });
 }
 
 export async function DELETE(request){
