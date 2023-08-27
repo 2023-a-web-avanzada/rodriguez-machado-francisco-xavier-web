@@ -61,7 +61,7 @@ export class Habitante{
         let indiceHabitante;
         await inquirer
             .prompt([
-                {type:'input',name:'nombre',message:'Ingrese el nombre del habitante:'},
+                {type:'input',name:'nombre',message:'Ingrese el nombre del habitantes:'},
                 {type:'rawlist',name:'eleccion',message:'Elige la opción que va a cambiar:',
                     choices: ['nombre', 'apellido', 'numeroDeCedula','fechaDeNacimiento','esMiembroProvincia']},
                 {type:'input',name:'nuevoValor',message:'Ingrese el nuevo valor:'},

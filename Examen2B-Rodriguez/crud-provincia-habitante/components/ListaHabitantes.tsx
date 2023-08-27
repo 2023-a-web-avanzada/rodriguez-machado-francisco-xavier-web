@@ -5,25 +5,26 @@ import {cache} from "browserslist";
 
 const getHabitante = async (params) => {
     try {
-        const res = await fetch(`http://localhost:3000/api/habitante/?idHabitante=${params}`, {
-            cache: "no-store",
+        const res = await fetch(`http://localhost:3000/api/habitantes/?idProvincia=${params}`, {
+            cache: "no-store"
         });
         if(!res.ok){
-            throw new Error('No se pudieron recuperar las provincias');
+            throw new Error('No se pudieron recuperar los datos de los habitantes');
         }
         return res.json();
     }catch (error){
-        console.log("Error al cargar las provincias", error);
+        console.log("Error al cargar los habitantes", error);
     }
 };
 
-export default async function ListaProvincias({params}) {
+export default async function ListaHabitante({params}) {
 
-    const { provincias } = await getHabitante({params});
+    const { habitantes } = await getHabitante({params});
+
 
     return (
         <>
-            {provincias.map(h => (
+            {habitantes.map(h => (
                 <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start">
                     <div>
                         <h2 className="font-bold text-4xl divide-black-y">{h.nombre}</h2>
@@ -39,8 +40,8 @@ export default async function ListaProvincias({params}) {
                             <span className="font-bold">¿Estado Civil?:</span>
                             <span>
                             {h.estaCasado
-                                ? "El habitante SÍ está en casado"
-                                : "El habitante NO está en casado"}
+                                ? "El habitantes SÍ está en casado"
+                                : "El habitantes NO está en casado"}
                             </span>
                         </div>
                     </div>

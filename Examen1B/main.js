@@ -3,7 +3,7 @@ import {leerEscribirArchivo, escribirArchivo, leerArchivo} from './lectura-escri
 import {Provincia} from './provincia.js';
 import {Habitante} from './habitante.js';
 
-const path = './provincia-habitante.txt'
+const path = './provincia-habitantes.txt'
 
 async function main(){
 
