@@ -1,6 +1,7 @@
 import Link from "next/link";
 import EliminarBtn from "./EliminarBtn";
 import {HiPencilAlt} from "react-icons/hi";
+import { FaUser } from 'react-icons/fa';
 import {cache} from "browserslist";
 
 const getProvincias = async () => {
@@ -49,6 +50,9 @@ export default async function ListaProvincias() {
                         <EliminarBtn idProvincia={p._id}/>
                         <Link href={`/editProvincia/${p._id}`}>
                             <HiPencilAlt size={24} />
+                        </Link>
+                        <Link href={`/habitantes/${p._id}`}>
+                            <FaUser size={24} />
                         </Link>
                     </div>
                 </div>

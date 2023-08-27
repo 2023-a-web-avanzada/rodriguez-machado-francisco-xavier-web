@@ -1,6 +1,7 @@
 "use client";
 import {useState} from "react";
 import {useRouter} from "next/navigation";
+import Link from "next/link";
 
 export default function EditarFormularioProvincia({idProvincia, nombreProvincia, gradoSeguridad, numeroHabitantes, estaFiestas}){
 
@@ -89,8 +90,13 @@ export default function EditarFormularioProvincia({idProvincia, nombreProvincia,
                     </label>
                 </div>
             </div>
-            <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">Actualizar Provincia</button>
+            <div className="flex gap-x-60">
+                <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">Actualizar Provincia</button>
+                <Link className="flex justify-center items-center bg-blue-300 font-bold text-black py-3 px-6 w-fit" href={`/habitantes/${idProvincia}`}>Habitantes</Link>
+            </div>
         </form>
+
+
         /*<form onSubmit={handleSubmit} className="flex flex-col gap-3">
             <input
                 onChange={(e) => {setNuevoNombreProvincia(e.target.value)}
