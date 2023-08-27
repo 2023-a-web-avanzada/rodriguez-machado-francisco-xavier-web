@@ -93,12 +93,7 @@ export default function AddProvincia() {
                     </label>
                 </div>
             </div>
-            <button
-                type="submit"
-                className="bg-green-600 font-bold text-white py-3 px-6 w-fit"
-            >
-                Agregar Provincia
-            </button>
+            <button type="submit" className="bg-green-600 font-bold text-white py-3 px-6 w-fit">Agregar Provincia</button>
         </form>
 
     );

@@ -37,7 +37,11 @@ export default async function ListaProvincias() {
                         </div>
                         <div className="grid grid-cols-1 divide-y gap-x-5">
                             <span className="font-bold">¿La Provincia está de Fiestas?:</span>
-                            <span>{p.estaFiestas.toString()}</span>
+                            <span>
+                            {p.estaFiestas
+                                ? "La provincia SÍ está en fiestas"
+                                : "La provincia NO está en fiestas"}
+                            </span>
                         </div>
                     </div>
 
