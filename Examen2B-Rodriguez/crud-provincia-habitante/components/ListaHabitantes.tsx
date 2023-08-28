@@ -5,9 +5,10 @@ import {cache} from "browserslist";
 
 const getHabitante = async (params) => {
     try {
-        const res = await fetch(`http://localhost:3000/api/habitantes/?idProvincia=${params}`, {
+        const res = await fetch(`http://localhost:3000/api/habitantes/?idProvincia=${params.params}`, {
             cache: "no-store"
         });
+        // console.log("funcion api", params.params); // para destruction
         if(!res.ok){
             throw new Error('No se pudieron recuperar los datos de los habitantes');
         }
@@ -20,8 +21,7 @@ const getHabitante = async (params) => {
 export default async function ListaHabitante({params}) {
 
     const { habitantes } = await getHabitante({params});
-
-
+    //console.log(JSON.stringify(params));
     return (
         <>
             {habitantes.map(h => (

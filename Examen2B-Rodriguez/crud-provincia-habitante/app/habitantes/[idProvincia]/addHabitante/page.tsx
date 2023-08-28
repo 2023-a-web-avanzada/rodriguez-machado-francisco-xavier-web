@@ -8,6 +8,7 @@ export default function AddHabitante({params}) {
 
     const idProvinciaA = params.idProvincia
     const idProvincia = idProvinciaA
+    console.log("Funcion add", idProvinciaA);
 
     const [nombre, setNombreHabitante] = useState("");
     const [cedula, setCedula] = useState("");
@@ -22,17 +23,16 @@ export default function AddHabitante({params}) {
             alert("Llene todos los campos solicitados");
             return;
         }
-
+        console.log("antes de entrar al fetch")
         try {
-            // @ts-ignore
-            const res = await fetch('http://localhost:3000/habitantes', {
+            const res = await fetch('http://localhost:3000/api/habitantes', {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
                 },
                 body: JSON.stringify({nombre, cedula, fechaNacimiento, estaCasado, idProvincia}),
             });
-
+            console.log("respuesta res",res);
             if (res.ok) {
                 router.push(`http://localhost:3000/habitantes/${idProvinciaA}`);
             } else {

@@ -11,8 +11,10 @@ export async function POST(request) {
 
 export async function GET(request) {
     const idProvincia = request.nextUrl.searchParams.get("idProvincia");
+    //console.log(idProvincia);
     await connectMongoDB();
     const habitantes = await Habitante.find({idProvincia: idProvincia});
+    //console.log(habitantes);
     return NextResponse.json({habitantes});
 }
 
