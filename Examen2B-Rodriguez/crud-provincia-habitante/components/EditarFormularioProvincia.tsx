@@ -92,7 +92,6 @@ export default function EditarFormularioProvincia({idProvincia, nombreProvincia,
             </div>
             <div className="flex gap-x-60">
                 <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">Actualizar Provincia</button>
-                <Link className="flex justify-center items-center bg-blue-300 font-bold text-black py-3 px-6 w-fit" href={`/habitantes/${idProvincia}`}>Habitantes</Link>
             </div>
         </form>
 
