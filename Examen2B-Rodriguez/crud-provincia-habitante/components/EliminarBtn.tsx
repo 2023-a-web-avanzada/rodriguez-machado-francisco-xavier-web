@@ -6,7 +6,7 @@ export default function EliminarBtn({ idProvincia }){
 
     const router = useRouter();
     const eliminarProvincia = async () =>{
-        const confirmed = confirm('Está seguro de eliminar esta Provincia');
+        const confirmed = confirm('¿Está seguro de eliminar esta Provincia?');
 
         if (confirmed){
             const res = await fetch(`http://localhost:3000/api/provincias?idProvincia=${idProvincia}`, {

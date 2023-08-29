@@ -35,22 +35,23 @@ export default function EditarFormularioProvincia({idProvincia, nombreProvincia,
     };
 
     return (
+        <div className={"bg-white rounded-lg shadow-lg p-6"}>
         <form onSubmit={handleSubmit} className={"flex flex-col gap-3"}>
             <input
                 onChange={(e) => setNuevoNombreProvincia(e.target.value)}
                 value={nuevoNombre}
-                className="border border-slate-500 px-8 py-2"
+                className="border border-slate-500 px-8 py-2 rounded-lg shadow-lg"
                 type="text"
                 placeholder="Ingrese el nombre de la Nueva Provincia"
             />
             <input
                 onChange={(e) => setNuevoNumeroHabitantes(e.target.value)}
                 value={nuevoNumHabitantes}
-                className="border border-slate-500 px-8 py-2"
+                className="border border-slate-500 px-8 py-2 rounded-lg shadow-lg"
                 type="text"
                 placeholder="Ingrese el número de habitantes"
             />
-            <div className="border border-slate-500 px-8 py-2">
+            <div className="border border-slate-500 px-8 py-2 rounded-lg shadow-lg">
                 <label htmlFor="gradoSeguridad" className="font-bold">
                     Grado de Seguridad: {nuevaSeguridad}
                 </label>
@@ -67,7 +68,7 @@ export default function EditarFormularioProvincia({idProvincia, nombreProvincia,
             Mueva la barra para seleccionar el grado de seguridad (1-5).
         </span>
             </div>
-            <div className="border border-slate-500 px-8 py-2">
+            <div className="border border-slate-500 px-8 py-2 rounded-lg shadow-lg">
                 <label className="font-bold">¿La Provincia está de fiestas?</label>
                 <div className="flex gap-16">
                     <label>
@@ -77,7 +78,7 @@ export default function EditarFormularioProvincia({idProvincia, nombreProvincia,
                             checked={nuevoEstado === "true"}
                             onChange={(e) => setNuevoEstado(e.target.value)}
                         />
-                        Verdadero
+                        <span className="ml-2">Verdadero</span>
                     </label>
                     <label>
                         <input
@@ -86,34 +87,19 @@ export default function EditarFormularioProvincia({idProvincia, nombreProvincia,
                             checked={nuevoEstado === "false"}
                             onChange={(e) => setNuevoEstado(e.target.value)}
                         />
-                        Falso
+                        <span className="ml-2">Falso</span>
                     </label>
                 </div>
             </div>
-            <div className="flex gap-x-60">
-                <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">Actualizar Provincia</button>
+            <div className="flex justify-between items-center bg-white px-8 py-3 my-3 shadow-md rounded-lg">
+                <button className="text-white font-bold  p-2 shadow-md rounded-lg bg-emerald-600">Actualizar Provincia
+                </button>
+                <Link
+                    href={`/`}
+                    className="text-white bg-red-700 p-2 font-bold shadow-md rounded-lg">Cancelar
+                </Link>
             </div>
         </form>
-
-
-        /*<form onSubmit={handleSubmit} className="flex flex-col gap-3">
-            <input
-                onChange={(e) => {setNuevoNombreProvincia(e.target.value)}
-                } value={nuevoNombreProvincia}
-                className="border border-slate-500 px-8 py-2" type="text" placeholder= "Nombre de la Provincia"/>
-            <input
-                onChange={(e) => {setNuevoGradoSeguridad(e.target.value)}
-                } value={nuevoGradoSeguridad}
-                className="border border-slate-500 px-8 py-2" type="text" placeholder= "Grado de Seguridad"/>
-            <input
-                onChange={(e) => {setNuevoNumeroHabitantes(e.target.value)}
-                } value={nuevoNumeroHabitantes}
-                className="border border-slate-500 px-8 py-2" type="text" placeholder= "Número de Habitantes"/>
-            <input
-                onChange={(e) => {setNuevoEstado(e.target.value)}
-                } value={nuevoEstado}
-                className="border border-slate-500 px-8 py-2" type="text" placeholder= "¿Está en fiestas la Provincia?"/>
-            <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">Actualizar Provincia</button>
-        </form>*/
+        </div>
     );
 }

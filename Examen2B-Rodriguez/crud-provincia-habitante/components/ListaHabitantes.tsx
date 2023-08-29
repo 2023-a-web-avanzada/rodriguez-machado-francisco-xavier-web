@@ -1,7 +1,10 @@
 import Link from "next/link";
 import EliminarBtnHabitante from "./EliminarBtnHabitante";
 import {HiPencilAlt} from "react-icons/hi";
+import { format } from 'date-fns';
+
 import {cache} from "browserslist";
+import EditarFormularioHabitante from "./EditarFormularioHabitante";
 
 const getHabitante = async (params) => {
     try {
@@ -25,7 +28,7 @@ export default async function ListaHabitante({params}) {
     return (
         <>
             {habitantes.map(h => (
-                <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start">
+                <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start shadow-md rounded-lg">
                     <div>
                         <h2 className="font-bold text-4xl divide-black-y">{h.nombre}</h2>
                         <div className="grid grid-cols-1 divide-y gap-x-5">
@@ -34,14 +37,14 @@ export default async function ListaHabitante({params}) {
                         </div>
                         <div className="flex grid grid-cols-1 divide-y gap-x-5">
                             <span className="font-bold">Fecha de Nacimiento:</span>
-                            <span>{h.fechaNacimiento}</span>
+                            <span>{format(new Date(h.fechaNacimiento), 'dd/MM/yyyy')}</span>
                         </div>
                         <div className="grid grid-cols-1 divide-y gap-x-5">
                             <span className="font-bold">¿Estado Civil?:</span>
                             <span>
                             {h.estaCasado
-                                ? "El habitantes SÍ está en casado"
-                                : "El habitantes NO está en casado"}
+                                ? "El habitante SÍ está en casado"
+                                : "El habitante NO está en casado"}
                             </span>
                         </div>
                     </div>

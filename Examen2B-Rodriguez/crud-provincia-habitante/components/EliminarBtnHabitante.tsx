@@ -7,7 +7,7 @@ export default function EliminarBtnHabitante({ idHabitante }){
 
     const router = useRouter();
     const eliminarHabitante = async () =>{
-        const confirmed = confirm('Está seguro de eliminar esta Provincia');
+        const confirmed = confirm('¿Está seguro de eliminar al habitante?');
 
         if (confirmed){
             const res = await fetch(`http://localhost:3000/api/habitantes?idHabitante=${idHabitante}`, {

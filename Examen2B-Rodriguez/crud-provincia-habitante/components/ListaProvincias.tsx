@@ -25,7 +25,7 @@ export default async function ListaProvincias() {
     return (
         <>
             {provincias.map(p => (
-                <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start">
+                <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start shadow-md rounded-lg">
                     <div>
                         <h2 className="font-bold text-4xl divide-black-y">{p.nombreProvincia}</h2>
                         <div className="grid grid-cols-1 divide-y gap-x-5">
@@ -40,8 +40,8 @@ export default async function ListaProvincias() {
                             <span className="font-bold">¿La Provincia está de Fiestas?:</span>
                             <span>
                             {p.estaFiestas
-                                ? "La provincia SÍ está en fiestas"
-                                : "La provincia NO está en fiestas"}
+                                ? "La provincia SÍ está de fiestas"
+                                : "La provincia NO está de fiestas"}
                             </span>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ export default async function ListaProvincias() {
                             <HiPencilAlt size={24} />
                         </Link>
                         <Link href={`/habitantes/${p._id}`}>
-                            <FaUser size={24} />
+                            <FaUser size={24} style={{ color: 'green' }}/>
                         </Link>
                     </div>
                 </div>
