@@ -8,8 +8,6 @@ import Link from "next/link";
 export default function EditarFormularioHabitante({idHabitante, nombre, cedula, fechaNacimiento, estaCasado, idProvincia}) {
 
     const [nuevoNombre, setNuevoNombre] = useState(nombre);
-    //const [nuevaCedula, setNuevaCedula] = useState(cedula);
-    //const [nuevaFechaNacimiento, setNuevaFechaNacimiento] = useState(fechaNacimiento);
     const [nuevoEstaCasado, setNuevoEstaCasado] = useState(estaCasado);
 
     const router = useRouter();
@@ -22,10 +20,7 @@ export default function EditarFormularioHabitante({idHabitante, nombre, cedula, 
                 headers: {
                     "Content-type": "application/json",
                 },
-                body: JSON.stringify({
-                    nuevoNombre,// nuevaCedula,
-                    /*nuevaFechaNacimiento,*/ nuevoEstaCasado
-                }),
+                body: JSON.stringify({nuevoNombre,nuevoEstaCasado}),
             });
 
             if (!res.ok) {
@@ -37,8 +32,6 @@ export default function EditarFormularioHabitante({idHabitante, nombre, cedula, 
             console.log(error);
         }
     };
-
-    const fechaActual = format(new Date(), 'yyyy-MM-dd');
 
     return (
         <div className={"bg-white rounded-lg shadow-lg p-6"}>
